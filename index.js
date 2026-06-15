@@ -53,11 +53,11 @@ function verificarToken(req, res, next) {
 
 }
 
-mongoose.connect(process.env.MONGO_URI)
-.then(() =>
-console.log("Mongo conectado"))
-.catch(error =>
-console.log("Error conectando MongoDB:", error));
+mongoose.connect(process.env.MONGO_URI, {
+  serverSelectionTimeoutMS: 10000
+})
+.then(() => console.log("Mongo conectado"))
+.catch(err => console.log("ERROR:", err));
 
 app.post("/usuarios", async (req, res) => {
   try {
