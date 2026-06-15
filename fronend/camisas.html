@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Camisetas</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body class="pagina-camisas">
+
+    <div class="contenedor">
+
+        <h1>Diseñador</h1>
+
+        <label>Nombre del diseño</label>
+
+        <input type="text" id="nombreDiseno" placeholder="Ej: Primera Musa FC">
+
+        <label>Descripción</label>
+
+        <textarea id="descripcion" placeholder="Describe tu diseño">
+        </textarea>
+
+        <label>Torso</label>
+        <input type="color" id="torso" value="#ffffff">
+
+        <label>Color mangas</label>
+
+        <input type="color" id="mangas" value="#ffffff">
+
+        <label>Cuello</label>
+        <input type="color" id="cuello" value="#cccccc">
+
+        <div class="camiseta-container">
+
+            <svg width="320" height="350" viewBox="0 0 320 350">
+
+                <path id="mangaIzquierdaSvg" d="
+                M55 95
+                L120 60
+                L120 150
+                L35 160
+                Z" fill="#ffffff" />
+
+                <path id="mangaDerechaSvg" d="
+                M200 60
+                L265 95
+                L285 160
+                L200 150
+                Z" fill="#ffffff" />
+
+                <path id="torsoSvg" d="
+                M120 60
+                L200 60
+                L220 290
+                L100 290
+                Z" fill="#ff0055" />
+
+                <ellipse id="cuelloSvg" cx="160" cy="75" rx="28" ry="16" fill="#000" />
+
+            </svg>
+
+        </div>
+
+        <button onclick="guardarCamiseta()">
+            Guardar diseño
+        </button>
+
+        <h2>
+            Diseños de la comunidad
+        </h2>
+
+        <div id="listaDiseños">
+
+        </div>
+
+    </div>
+
+</body>
+<script src="js/camisas.js"></script>
+
+</html>

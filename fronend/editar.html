@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Diseño</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>Editar Diseño</h1>
+
+    <label>Nombre del diseño</label>
+    <input type="text" id="nombreDiseno">
+
+    <label>Descripción</label>
+    <textarea id="descripcion"></textarea>
+
+    <label>Torso</label>
+    <input type="color" id="torso">
+
+    <label>Manga izquierda</label>
+    <input type="color" id="mangaIzquierda">
+
+    <label>Manga derecha</label>
+    <input type="color" id="mangaDerecha">
+
+    <label>Cuello</label>
+    <input type="color" id="cuello">
+
+    <button onclick="guardarCambios()">
+        Guardar cambios
+    </button>
+
+    <button onclick="window.location='camisas.html'">
+        Volver
+    </button>
+
+</div>
+
+<script src="js/editar.js"></script>
+
+</body>
+</html>
