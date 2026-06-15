@@ -51,11 +51,10 @@ function verificarToken(req, res, next) {
 
 }
 
-mongoose.connect("mongodb://localhost:27017/camisap")
+mongoose.connect("mongodb+srv://Matt1_db_user:Mvenegas25@cluster0.qsmdlrz.mongodb.net/camisap?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB local conectado correctamente"))
   .catch(error => console.error("Error conectando MongoDB:", error));
 
-// CREAR USUARIO
 app.post("/usuarios", async (req, res) => {
   try {
 
@@ -79,8 +78,6 @@ app.post("/usuarios", async (req, res) => {
   }
 });
 
-
-// VER USUARIOS
 app.get("/usuarios", async (req, res) => {
   try {
     const usuarios = await Usuario.find();
