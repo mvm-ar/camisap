@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,7 +10,7 @@ const Usuario = require("./esquemausuario.js");
 const Camiseta = require("./esquemacamiseta");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const path = require("path");
 
@@ -34,7 +36,7 @@ function verificarToken(req, res, next) {
 
     const datos = jwt.verify(
       token,
-      "MI_SECRETO_123"
+      process.env.JWT_SECRET
     );
 
     req.usuario = datos;
@@ -51,9 +53,11 @@ function verificarToken(req, res, next) {
 
 }
 
-mongoose.connect("mongodb+srv://Matt1_db_user:Mvenegas25@cluster0.qsmdlrz.mongodb.net/camisap?retryWrites=true&w=majority")
-  .then(() => console.log("MongoDB local conectado correctamente"))
-  .catch(error => console.error("Error conectando MongoDB:", error));
+mongoose.connect(process.env.MONGO_URI)
+.then(() =>
+console.log("Mongo conectado"))
+.catch(error =>
+console.log("Error conectando MongoDB:", error));
 
 app.post("/usuarios", async (req, res) => {
   try {
@@ -298,7 +302,7 @@ app.post("/login", async (req, res) => {
     nombre: usuario.nombre,
     correo: usuario.correo
   },
-  "MI_SECRETO_123",
+  process.env.JWT_SECRET,
   {
     expiresIn: "1h"
   }
